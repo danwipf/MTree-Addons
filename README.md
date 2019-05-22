@@ -2,6 +2,18 @@
 
 Collection of addons for Unity Mtree (Maxime Herpine)
 
+
+Released:
+- MtreeBezier
+
+Almost finished:
+- MtreeRandomizer
+
+InProduction / Abandoned ideas:
+- Mtree Builderscene(Easier workspace for creating Mtrees)
+
+
+
 any issues, or questions at discord => https://discord.gg/pqKqazJ or via issue tracker.
 
 
