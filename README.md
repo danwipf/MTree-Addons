@@ -5,6 +5,7 @@ Collection of addons for Unity Mtree (Maxime Herpine)
 
 Released:
 - MtreeBezier
+- Mtree Seasonal Shaders
 
 Almost finished:
 - MtreeRandomizer
@@ -12,7 +13,9 @@ Almost finished:
 InProduction / Abandoned ideas:
 - Mtree Builderscene(Easier workspace for creating Mtrees)
 
-
+Tutorials:
+- Mtree Fern
+- Mtree Apple Tree
 
 any issues, or questions at discord => https://discord.gg/pqKqazJ or via issue tracker.
 
