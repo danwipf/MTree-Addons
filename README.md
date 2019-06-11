@@ -5,6 +5,7 @@ Collection of addons for Unity Mtree (Maxime Herpine)
 
 Released:
 - MtreeBezier
+- Mtree Enhanced Branch Editor
 - Mtree Seasonal Shaders
 
 Almost finished:
