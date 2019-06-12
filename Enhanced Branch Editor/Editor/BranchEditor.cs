@@ -168,9 +168,7 @@ namespace Mtree
             if (GUILayout.Button("Save Texture"))
             {
                 AssetDatabase.StartAssetEditing();
-                EditorUtility.DisplayProgressBar("Export of Textures","",0);
                 ExportTextures();
-                EditorUtility.ClearProgressBar();
                 AssetDatabase.StopAssetEditing();
                 //SaveTexture();
             }
