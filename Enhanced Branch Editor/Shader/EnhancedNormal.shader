@@ -3,7 +3,7 @@
 		_Cutoff ("CutOff", Range(0,1)) = 0.3
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}		
 		_BumpMap("Normal Map", 2D) = "bump" {}
-		//_Rotation("Axis",float) = (-90,0,0)
+		_Rotation("Axis",float) = (-90,0,0)
 	}
 	SubShader{
 		Tags{ "RenderType" = "Opaque" }
@@ -16,7 +16,7 @@
 		sampler2D _MainTex;
 		sampler2D _BumpMap;
 		float _Cutoff;
-		// float3 _Rotation;
+		float3 _Rotation;
 		
 		struct Input {
 			float2 uv_MainTex;
@@ -26,12 +26,9 @@
 		};
 		
 		float4x4 RotationMatrix () {
-			// float radX = radians(_Rotation.x);
-			// float radY = radians(_Rotation.y);
-			// float radZ = radians(_Rotation.z);
-			float radX = radians(-90);
-			float radY = radians(0);
-			float radZ = radians(0);
+			float radX = radians(_Rotation.x);
+			float radY = radians(_Rotation.y);
+			float radZ = radians(_Rotation.z);
 			float sinX = sin(radX);
 			float cosX = cos(radX);
 			float sinY = sin(radY);

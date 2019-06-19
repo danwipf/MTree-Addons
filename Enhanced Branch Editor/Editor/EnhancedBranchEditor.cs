@@ -16,8 +16,9 @@ namespace Mtree
         #region Exposed variables
         public Texture2D leafTexture,normalLeafTexture;
         public Texture2D barkTexture,normalBarkTexture;
-        public bool switchShader = false;
-        public int NormalMode = 0;
+        bool switchShader = false;
+        int NormalMode = 0;
+        Vector3 NormalRotation = new Vector3(-90,0,0);
         Color barkColor = Color.white;
         int branchNumber = 5;
         float stemLength = 1.5f;
@@ -168,6 +169,7 @@ namespace Mtree
                 NormalMode = GUILayout.Toolbar(NormalMode,new string[]{"Default"});
                 NormalMode = 0;
             }
+            NormalRotation = EditorGUILayout.Vector3Field("Normal Rotation", NormalRotation);
             string s_swtichShader = "";
             if(switchShader){
                 s_swtichShader = "Show Textures";
@@ -183,6 +185,7 @@ namespace Mtree
             EditorGUILayout.EndVertical();
             if (EditorGUI.EndChangeCheck())
             {
+                CheckTextureType();
                 UpdateBranch(switchShader);
             }
             if (GUILayout.Button("Save Texture"))
@@ -278,6 +281,8 @@ namespace Mtree
                 if(NormalMode == 1){
                     barkMaterial = new Material(Shader.Find("Mtree/BranchEditor/EnhancedNormal"));
                     leafMaterial = new Material(Shader.Find("Mtree/BranchEditor/EnhancedNormal"));
+                    barkMaterial.SetVector("_Rotation",NormalRotation);
+                    leafMaterial.SetVector("_Rotation",NormalRotation);
                 }
                 barkMaterial.SetTexture("_BumpMap",normalBarkTexture);
                 leafMaterial.SetTexture("_BumpMap",normalLeafTexture);
@@ -343,7 +348,7 @@ namespace Mtree
             RenderTexture.active = cam.targetTexture;
             cam.Render();
             Texture2D image = new Texture2D(cam.targetTexture.width, cam.targetTexture.height);
-            image.name = "Banch";
+            image.name = "Branch";
             image.ReadPixels(new Rect(0, 0, cam.targetTexture.width, cam.targetTexture.height), 0, 0);
             image.Apply();
             RenderTexture.active = currentRT;
@@ -408,7 +413,7 @@ namespace Mtree
 
         void ExportTextures()
         {
-            CheckTextureType();
+            
             UpdateBranch();
             string path = SaveTexture();
             string name = Path.GetFileNameWithoutExtension(path);
@@ -422,12 +427,12 @@ namespace Mtree
             var l_path = AssetDatabase.GetAssetPath(normalLeafTexture);
             TextureImporter b_t = (TextureImporter)TextureImporter.GetAtPath(b_path);
             TextureImporter l_t = (TextureImporter)TextureImporter.GetAtPath(b_path);
-            if(b_t.textureType != TextureImporterType.Default){
-                b_t.textureType = TextureImporterType.Default;
+            if(b_t.textureType != TextureImporterType.NormalMap){
+                b_t.textureType = TextureImporterType.NormalMap;
                 b_t.SaveAndReimport();
             }
-            if(l_t.textureType != TextureImporterType.Default){
-                l_t.textureType = TextureImporterType.Default;
+            if(l_t.textureType != TextureImporterType.NormalMap){
+                l_t.textureType = TextureImporterType.NormalMap;
                 l_t.SaveAndReimport();
             }
         }
