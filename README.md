@@ -7,6 +7,7 @@ Released:
 - MtreeBezier
 - Mtree Enhanced Branch Editor
 - Mtree Seasonal Shaders
+- Mtree Faster AO
 
 Almost finished:
 - MtreeRandomizer
