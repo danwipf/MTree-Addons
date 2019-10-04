@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: MTree Wind_2.1
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=17000\n309;23;1440;802;1638.711;793.9;1.726263;False;True\nNode;AmplifyShaderEditor.VertexColorNode;8;-540.6594,-267.7055;Float;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.PosVertexDataNode;9;-560.1622,-414.6289;Float;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionInput;3;-497.9799,84.09223;Float;False;Is
+    Leaf;0;0;False;1;0;INT;0;False;1;INT;0\nNode;AmplifyShaderEditor.RangedFloatNode;11;-516.6401,-93.90031;Float;False;Property;_WindStrength;Wind
+    Strength;0;0;Create;False;0;0;False;1;Header(Wind);0.1;0.1;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;7;-13.4951,-137.5117;Float;False;float3
+    v_pos = VertexPos.xyz@$float1 turbulence = sin(_Time * 40 - mul(UNITY_MATRIX_M,
+    VertexPos).z / 15) * .5f@$float3 dir = float3(1, 0, 0)@$float1 angle = MtreeWindStrength
+    * (1 + sin(_Time * 2 + turbulence - v_pos.z / 50 - VertexCol.x / 20)) * sqrt(VertexCol.x)
+    * .02f@$float1 y = v_pos.y@$float1 z = v_pos.z@$float1 cos_a = cos(angle)@$float1
+    sin_a = sin(angle)@$float1 leaf_turbulence = sin(_Time * 200 * (.2+VertexCol.g)
+    + VertexCol.g * 10 + turbulence + v_pos.z/2) * VertexCol.z * (angle + MtreeWindStrength
+    /200)@$$v_pos.y = y * cos_a - z * sin_a@$$if(IsLeaf == 1){$\tv_pos.y += leaf_turbulence@$}$$v_pos.z
+    = y * sin_a + z * cos_a@$$return v_pos@$;3;False;4;True;VertexPos;FLOAT3;0,0,0;In;;Float;False;True;VertexCol;FLOAT3;0,0,0;In;;Float;False;True;MtreeWindStrength;FLOAT;0;In;;Float;False;True;IsLeaf;INT;0;In;;Float;False;My
+    Custom Expression;True;False;0;4;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;3;INT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;296.3904,-137.9577;Float;False;True;Local
+    Vertex Position;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;7;0;9;0\nWireConnection;7;1;8;0\nWireConnection;7;2;11;0\nWireConnection;7;3;3;0\nWireConnection;0;0;7;0\nASEEND*/\n//CHKSM=FAF7341576E043E6196F76053A4512A349518742"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0
